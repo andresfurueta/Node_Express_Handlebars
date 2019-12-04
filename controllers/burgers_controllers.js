@@ -14,15 +14,15 @@ burger_router.get('/', function(req,res){
 
 burger_router.get('/burger', function(req,res){
   burger_call.read(function(data){
-    // console.log(data);
+    
     var hbs_object = {burger: data};
-    // console.log(hbs_object);
+   
     res.render('index', hbs_object);
   });
 });
 
 burger_router.post('/burger/add', function(req, res){
-  // console.log(req.body.user_burger)
+
   burger_call.insert(req.body.user_burger, function(data){
     res.redirect('/burger');
   });
